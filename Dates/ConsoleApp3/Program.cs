@@ -7,9 +7,8 @@ int monday, tuesday, wednesday, thursday, friday, sunday, saturday;
 monday = tuesday = wednesday = thursday = friday = sunday = saturday = 0;
 //sort array
 Console.WriteLine("Sorted array");
-Array.Copy(array, arraysorted, array.Length);
-Array.Sort(arraysorted);
-foreach (int pluss in arraysorted)
+Array.Sort(array);
+foreach (int pluss in array)
     {
         count++;
         switch (pluss)
