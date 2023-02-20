@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "count_strings_in_array", "count_strings_in_array\count_strings_in_array.csproj", "{8BF19CA2-0C01-44CB-B7EA-37D0497955AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BF19CA2-0C01-44CB-B7EA-37D0497955AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF19CA2-0C01-44CB-B7EA-37D0497955AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF19CA2-0C01-44CB-B7EA-37D0497955AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF19CA2-0C01-44CB-B7EA-37D0497955AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14E0B1F9-CC01-44AA-AD8B-BD4CC95265A5}
+	EndGlobalSection
+EndGlobal
