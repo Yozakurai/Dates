@@ -1,8 +1,7 @@
-﻿internal class Izvade
-{
-    private static void Main(string[] args)
-    {
-        Console.WriteLine("***UZD_1***");
+﻿
+using System.Text;
+
+Console.WriteLine("***UZD_1***");
         Console.Write("Char ");
         char chr = char.Parse(Console.ReadLine());
         Console.Write("int ");
@@ -17,19 +16,16 @@
         decimal dec = decimal.Parse(Console.ReadLine());
 
         Console.Write($"Char {chr}; int {inte}; boolean {boo}; String {str}; Double {dbl};Decimal {dec}");
-    }
+        Console.WriteLine();
 
-}
-internal class Diapzons
-{
-    private static void Main(string[] args)
-    {
-        Console.WriteLine("***Uzd2***");
+
+
+        Console.WriteLine("\n***Uzd2***");
         //char; decimal; double; short; float; byte; sbyte; long; ulong; int; uint (Max/Min.Value)
         //Izvada datu tipa diapzonus no Minimālās vērtības līdz maksimālai
 
         Console.WriteLine("\tMin\t\t\t\tMax");
-        Console.WriteLine($"char {char.MinValue} \t{char.MaxValue}");
+        Console.WriteLine($"char \t{(int)char.MinValue} \t\t\t\t{(int)char.MaxValue}");
         Console.WriteLine($"decimal {decimal.MinValue} \t{decimal.MaxValue}");
         Console.WriteLine($"double \t{double.MinValue} \t{double.MaxValue}");
         Console.WriteLine($"short \t{short.MinValue} \t\t\t\t{short.MaxValue}");
@@ -40,13 +36,12 @@ internal class Diapzons
         Console.WriteLine($"ulong \t{ulong.MinValue} \t\t\t\t{ulong.MaxValue}");
         Console.WriteLine($"int \t{int.MinValue} \t\t\t{int.MaxValue}");
         Console.WriteLine($"uint\t{uint.MinValue} \t\t\t\t{uint.MaxValue}");
+        Console.WriteLine();
 
-    }
-}
-internal class Netiešā
-{
-    private static void Main(string[] args)
-    {
+
+
+
+
         Console.WriteLine("***Uzd_3***");
         //byte - short; int - long; int - uint; int - byte
         //Parveido vērtības no mazāka diapzona uz lielāku
@@ -65,24 +60,29 @@ internal class Netiešā
         byte bbnum = 255;
         int iinum = bbnum;
         Console.WriteLine($"\nbyte({bbnum}) - > int: {iinum}");
-    }
-}
-internal class Tiešā
-{
-    private static void Main(string[] args)
-    {
+
+
+
+
         Console.WriteLine("\n***Uzd_4***");
-        //double - int;
+        //double - int; string - double; float - long; char - int
         double x = 1234.7; //dbl vertiba
         int a = (int)x; //parveido dbl uz int
         Console.WriteLine($"\ndouble({x}) - > int: {a}");
 
-    }
-}
-internal class Reverse
-{
-    private static void Main(string[] args)
-    {
+        string strin = "2.51234";
+        double doubll = double.Parse(strin);
+        Console.WriteLine($"\nstring({strin}) - > double: {doubll}");
+
+        float flo = 123.23f;
+        long loun = (long)flo;
+        Console.WriteLine($"\nfloat({flo}) - > long: {loun}");
+
+        char chi = 'A';
+        int inii = (int)chi;
+        Console.WriteLine($"\nchar({chi}) - > int: {inii}");
+
+
         Console.WriteLine("***Uzd_5***");
         Console.Write("Ievadiet simbolus: ");
         string vards = Console.ReadLine(); //Ievadam mainīgo
@@ -99,5 +99,4 @@ internal class Reverse
         }
         else //Ja nav vienādi...
             Console.WriteLine("\nVārds nav simetrisks");
-    }
-}
+
