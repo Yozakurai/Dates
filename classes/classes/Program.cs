@@ -15,7 +15,7 @@ public class Prece
     public string nosaukums;
     public double cena;
 
-    public void Reģistrēt()
+    public void Reģistrēt()  //ievadam klases mainīgos
     {
         Console.Write("Ievadiet preces nosaukumu: ");
         nosaukums = Console.ReadLine();
@@ -23,7 +23,7 @@ public class Prece
         cena = Convert.ToDouble(Console.ReadLine());
     }
 
-    public void Izvadīt()
+    public void Izvadīt() //izvadam datus
     {
         Console.WriteLine("Preces nosaukums: " + nosaukums);
         Console.WriteLine("\tPreces cena: " + cena + " Eur");
@@ -34,8 +34,8 @@ public class Prece
 public class Grozs
 {
     public int skaits;
-    public Prece[] Preces;
-    public void Reģistrēt()
+    public Prece[] Preces; //Klases Prece masivs
+    public void Reģistrēt() //izsaucam funkcijas no klasēm lai reģistrētu preces
     {
         Console.Write("Ievadiet preču skaitu grozā:");
         skaits = int.Parse(Console.ReadLine());
@@ -48,7 +48,7 @@ public class Grozs
         } 
 
     }
-    public double Kopsumma()
+    public double Kopsumma() //saskaitam katru preci ar sevi lai dabutu kopējo summu
     {
         double sum = 0;
         foreach (Prece prece in Preces)
@@ -57,7 +57,7 @@ public class Grozs
         }
         return sum;
     }
-    public void Izvadīt()
+    public void Izvadīt() //izvadam groza datus
     {
         int count = 1;
         Console.WriteLine("\tPreču skaits grozā: " + skaits);
@@ -81,7 +81,7 @@ public class Persona
     public Grozs grozs;
     public double lidzekli;
 
-    public void Reģistrēt()
+    public void Reģistrēt() //ievadam klases mainīgos un izmantojam groza funkciju lai reģistrētu preces
     {
         grozs = new Grozs();
         Console.Write("Ievadiet jūsu vārdu: ");

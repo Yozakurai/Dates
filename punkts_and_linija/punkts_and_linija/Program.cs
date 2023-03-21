@@ -41,6 +41,7 @@ public class Punkts
     {
         Console.WriteLine($"Punkta X vērtība ir {X}");
         Console.Write($"Punkta Y vērtība ir {Y}");
+        Console.Write($"\nKrāsa ir: {Krasa}");
     }
 }
 
@@ -62,16 +63,20 @@ public class Linija
         Krasa = Console.ReadLine();
 
     }
-    public double Garums()
+    public int Garums()
     {
-        return Math.Round(Math.Sqrt(Math.Pow((B.X - A.X), 2) + Math.Pow((B.Y - A.Y), 2)), 2);
+        double gar = Math.Round(Math.Sqrt(Math.Pow((B.X - A.X), 2) + Math.Pow((B.Y - A.Y), 2)), 2);
+        int intgar = Convert.ToInt32(gar);
+        return intgar;
     }
 
     public void Izvadīt()
     {
-        Console.WriteLine($"Līnija A: ({A.X},{A.Y}), Krāsa: {A.Krasa}");
-        Console.WriteLine($"Līnija B: ({B.X},{B.Y}), Krāsa: {B.Krasa}");
-        Console.WriteLine($"Krāsa: {Krasa}");
-        Console.WriteLine($"Garums: {Garums()}");
+        Console.WriteLine($"Līnija A: ");
+        A.Izvadīt();
+        Console.WriteLine($"\nLīnija B: ");
+        B.Izvadīt();
+        Console.WriteLine($"\nLīnījas krāsa: {Krasa}");
+        Console.WriteLine($"\nGarums: {Garums()}");
     }
 }
