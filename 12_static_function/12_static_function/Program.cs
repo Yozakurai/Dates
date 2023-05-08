@@ -2,21 +2,48 @@
 using System.Drawing;
 using System.Text;
 
+
+Console.WriteLine("int ievade...");
+    Console.Write("Ievadiet skaitli: ");
+    myConsole.NolasitKaInt();
+
+Console.WriteLine("izvade...");
+    myConsole.Izvadit("Funkcija izvada tekstu");
+
+Console.WriteLine("Background...");
+//myConsole.NomainitFonaKrasu();
+
+Console.WriteLine("Burtu krasa...");
+//myConsole.NomainitBurtuKrasu();
+
+//Console.WriteLine("formatesana...");
+//myConsole.FormatetVardu("Skaists_Vārds");
+
+Console.WriteLine("Parole...");
+myConsole.IzveidotParoli(18);
+
+Console.WriteLine("Šifrēšana...");
+Console.WriteLine("Ievadiet tekstu ko vēlaties šifrēt");
+    string teksts = Console.ReadLine();
+    string protect = myConsole.SifretTekstu(teksts);
+    Console.WriteLine("atsifrejums...");
+    myConsole.AtsifretTekstu(protect);
+
 public class myConsole
 {
     static string tagad = DateTime.Now.ToString("dd.MM.yyyy"); // mainīgajam piešķirt patreizējo datumu. Formātu izvēlēties brīvi
- static int NolasitKaInt()
+ public static int NolasitKaInt()
     {
         //funkcija pieprasa lietotājam ievadīt veselo skaitli. Gadījumā, ja
         //lietotājs ievada veselo skaitli, atgriež to.Ja lietotājs ievadīja ne veselo
         //skaitli(burtus, simbolus) atgriež nulli un paziņo, ka konvertācija bija
         //neveiksmīga.
-
-        int ievade;
-        bool numurs = int.TryParse(Console.ReadLine(), out ievade);
-        if(numurs)
+        int result;
+        string skaitlis = Console.ReadLine();
+        if (int.TryParse(skaitlis, out result))
         {
-            return ievade;
+            Console.WriteLine(result);
+            return result;
         }
         else
         {
@@ -24,12 +51,12 @@ public class myConsole
             return 0;
         }
     }
-    static void Izvadit(string text)
+    public static void Izvadit(string text)
     {
         Console.WriteLine(text);
         //funkcija izvada tekstu text
     }
-    static void NomainitFonaKrasu()
+    public static void NomainitFonaKrasu()
     {
         Random random = new Random();
         int r = random.Next(0, 255);
@@ -41,7 +68,7 @@ public class myConsole
         Console.BackgroundColor = consoleColor;
         //funkcija nomaina konsoles fona krāsu uz gadījuma (!) krāsu
     }
-    static void NomainitBurtuKrasu()
+    public static void NomainitBurtuKrasu()
     {
         Random random = new Random();
         int r = random.Next(0, 255);
@@ -53,7 +80,7 @@ public class myConsole
         Console.ForegroundColor = consoleColor;
         //funkcija nomaina konsoles burtu krāsu uz gadījuma (!) krāsu
     }
-    static void FormatetVardu(string vards_uzvārds)
+    public static void FormatetVardu(string vards_uzvārds)
     {
         // Sākumā sadalam vārdu un uzvārdu atsevišķos string objektos.
         string[] splitVardsUzvards = vards_uzvārds.Split(' ');
@@ -67,7 +94,7 @@ public class myConsole
         //Zars". Un izvada to sekojošā formātā - vārda pirmais burts. Uzvārds (piemēram,
         //"I. Zars")
     }
-    static string IzveidotParoli(int garums)
+    public static string IzveidotParoli(int garums)
     {
         const string simboli = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+-=[]{};:,.<>/?";
         StringBuilder parolesBuilder = new StringBuilder();
@@ -84,7 +111,7 @@ public class myConsole
         //funkcija veido un atgriež lietotājam drošo paroli. Paroles garumu
         //    funkcija saņem. PAroles veidošanas principus jāizdomā pašam.
     }
-    static string SifretTekstu(string teksts)
+    public static string SifretTekstu(string teksts)
     {
         //funkcija saņem kādu tekstu un šifrē to, izmantojot kādu no
         //vienkāršākiem šifrēšanas metodēm(piemēram, katram simbolam tiek pieskaitīs
@@ -97,12 +124,12 @@ public class myConsole
         }
         return sifrejums;
     }
-    static string AtsifretTekstu(string teksts)
+    public static string AtsifretTekstu(string sifrejums)
     {
         //funkcija saņem šifrētu tekstu un atšifrē to, izmantojot iepriekš
         //definēto šifrēšanas metodi
         string atsifrejums = "";
-        foreach (char burts in teksts)
+        foreach (char burts in sifrejums)
         {
             char atsifretaisBurts = (char)(burts - 1);
             atsifrejums += atsifretaisBurts;
