@@ -1,28 +1,31 @@
 ﻿
 
-/*
+Console.WriteLine("1.uzdevums");
 Calculator objekts = new Calculator();
-Console.WriteLine("Ievadiet x un y: ");
+Console.WriteLine("Ievadiet X un Y: ");
 int x, y;
 string X = Console.ReadLine();
 string Y = Console.ReadLine();
 int.TryParse(X, out x);
 int.TryParse(Y, out y);
-Console.WriteLine($"x vertiba: {x}");
-Console.WriteLine($"x vertiba: {y}");
+Console.WriteLine($"X vertiba: {x}");
+Console.WriteLine($"Y vertiba: {y}");
 objekts.Kapinat(ref x);
 Console.WriteLine($"Kapinat: {x} ");
 int.TryParse(X, out x);
 objekts.Reizinat(ref x, ref y);
 Console.WriteLine($"Reizinat: {x}");
-*/
-Console.WriteLine("\n2.uzd\n");
-// 2.uzdevums
-Console.WriteLine("Cik daudz skaitļu būs masīva:");
-int skaits = int.Parse(Console.ReadLine());
-Console.WriteLine("Ievadiet masiva vertibas: ");
-int[] values = new int[skaits];
-for (int i = 0; i < skaits; i++)
+
+
+
+
+
+Console.WriteLine("\n2.uzdevums");
+Console.WriteLine("Cik skaitļu būs masīva:");
+int skaitli = int.Parse(Console.ReadLine());
+Console.WriteLine("Ievadiet masīva vertibas: ");
+int[] values = new int[skaitli];
+for (int i = 0; i < skaitli; i++)
 {
     values[i] = int.Parse(Console.ReadLine());
 }
@@ -31,19 +34,27 @@ Console.WriteLine($"Max: {MansMath.Max(values)}");
 Console.WriteLine($"Min: {MansMath.Min(2, 3, 5, 1, 6, 8, 3)}");
 Console.WriteLine($"Max: {MansMath.Max(2, 3, 5, 1, 6, 8, 3)}");
 
-Console.WriteLine("\n3.uzd\n");
+
+
+
+
+Console.WriteLine("\n3.uzd");
 
 Console.WriteLine("Ievadiet masīva garumu:");
-skaits = int.Parse(Console.ReadLine());
-int[] mas = new int[skaits];
-Random rand = new Random();
-for (int i = 0; i < skaits; i++)
+skaitli = int.Parse(Console.ReadLine());
+int[] mas = new int[skaitli];
+Random rnd = new Random();
+for (int i = 0; i < skaitli; i++)
 {
-    mas[i] = rand.Next(1, 11);
+    mas[i] = rnd.Next(1, 11);
 }
 int Skaits;
 Console.WriteLine($"Para skaitla summa: {ParaSkaitluSumma(mas, out Skaits)}"); //izvada para skaitlu summu
 Console.WriteLine($"Para skaitla skaits {Skaits}"); //izvada para skaitlu skaitu
+
+
+
+
 
 static int ParaSkaitluSumma(int[] mas, out int paraSkaitluSkaits)
 {
@@ -61,7 +72,6 @@ static int ParaSkaitluSumma(int[] mas, out int paraSkaitluSkaits)
     return summa;
     //return paraSkaitluSkaits;
 }
-//1.uzd
 public class Calculator
 {
     public void Kapinat(ref int x)
@@ -73,7 +83,6 @@ public class Calculator
         x = x * y;
     }
 }
-//2.uzd
 
 public class MansMath
 {
