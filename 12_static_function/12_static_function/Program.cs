@@ -4,20 +4,20 @@ using System.Text;
 
 
 Console.WriteLine("int ievade...");
-    Console.Write("Ievadiet skaitli: ");
-    myConsole.NolasitKaInt();
+Console.Write("ievadiet skaitli: ");
+myConsole.NolasitKaInt();
 
 Console.WriteLine("izvade...");
-    myConsole.Izvadit("Funkcija izvada tekstu");
+myConsole.Izvadit("funkcija izvada tekstu");
 
-Console.WriteLine("Background...");
-//myConsole.NomainitFonaKrasu();
+Console.WriteLine("background...");
+myConsole.NomainitFonaKrasu();
 
-Console.WriteLine("Burtu krasa...");
-//myConsole.NomainitBurtuKrasu();
+Console.WriteLine("burtu krasa...");
+myConsole.NomainitBurtuKrasu();
 
-//Console.WriteLine("formatesana...");
-//myConsole.FormatetVardu("Skaists_Vārds");
+Console.WriteLine("formatesana...");
+myConsole.FormatetVardu("Skaists Vārds");
 
 Console.WriteLine("Parole...");
 myConsole.IzveidotParoli(18);
@@ -59,25 +59,13 @@ public class myConsole
     public static void NomainitFonaKrasu()
     {
         Random random = new Random();
-        int r = random.Next(0, 255);
-        int g = random.Next(0, 255);
-        int b = random.Next(0, 255);
-        Color color = Color.FromArgb(r, g, b);
-        ConsoleColor consoleColor = (ConsoleColor)Array.IndexOf(Enum.GetValues(typeof(ConsoleColor)), Enum.Parse(typeof(ConsoleColor), color.Name)); //parveido no System.Drawing.Color
-                                                                                                                                                     //uz lasāmu System.CosnoleColor
-        Console.BackgroundColor = consoleColor;
+        Console.BackgroundColor = (ConsoleColor)random.Next(16);
         //funkcija nomaina konsoles fona krāsu uz gadījuma (!) krāsu
     }
     public static void NomainitBurtuKrasu()
     {
-        Random random = new Random();
-        int r = random.Next(0, 255);
-        int g = random.Next(0, 255);
-        int b = random.Next(0, 255);
-        Color color = Color.FromArgb(r, g, b);
-        ConsoleColor consoleColor = (ConsoleColor)Array.IndexOf(Enum.GetValues(typeof(ConsoleColor)), Enum.Parse(typeof(ConsoleColor), color.Name)); //parveido no System.Drawing.Color
-                                                                                                                                                     //uz lasāmu System.CosnoleColor
-        Console.ForegroundColor = consoleColor;
+        Random rand = new Random();
+        Console.ForegroundColor = (ConsoleColor)rand.Next(16);
         //funkcija nomaina konsoles burtu krāsu uz gadījuma (!) krāsu
     }
     public static void FormatetVardu(string vards_uzvārds)
@@ -106,34 +94,31 @@ public class myConsole
             char randomSimbols = simboli[randomSimbolaIndekss];
             parolesBuilder.Append(randomSimbols);
         }
-
+        Console.WriteLine(parolesBuilder);
         return parolesBuilder.ToString();
         //funkcija veido un atgriež lietotājam drošo paroli. Paroles garumu
         //    funkcija saņem. PAroles veidošanas principus jāizdomā pašam.
     }
     public static string SifretTekstu(string teksts)
     {
-        //funkcija saņem kādu tekstu un šifrē to, izmantojot kādu no
-        //vienkāršākiem šifrēšanas metodēm(piemēram, katram simbolam tiek pieskaitīs
-        //kāds skaitlis)
-        string sifrejums = "";
-        foreach (char burts in teksts)
+        string sifrets = "";
+        for (int i = 0; i < teksts.Length; i++)
         {
-            char sifretaisBurts = (char)(burts + 1);
-            sifrejums += sifretaisBurts;
+            sifrets += (char)(teksts[i] + 5);
         }
-        return sifrejums;
+        Console.WriteLine(sifrets);
+        //funkcija saņem kādu tekstu un šifrē to, izmantojot kādu no vienkāršākiem šifrēšanas metodēm(piemēram, katram simbolam tiek pieskaitīs kāds skaitlis)
+        return sifrets;
     }
-    public static string AtsifretTekstu(string sifrejums)
+    public static string AtsifretTekstu(string protect)
     {
-        //funkcija saņem šifrētu tekstu un atšifrē to, izmantojot iepriekš
-        //definēto šifrēšanas metodi
-        string atsifrejums = "";
-        foreach (char burts in sifrejums)
+        string atsifrets = "";
+        for (int i = 0; i < protect.Length; i++)
         {
-            char atsifretaisBurts = (char)(burts - 1);
-            atsifrejums += atsifretaisBurts;
+            atsifrets += (char)(protect[i] - 5);
         }
-        return atsifrejums;
+        Console.WriteLine(atsifrets);
+        //funkcija saņem šifrētu tekstu un atšifrē to, izmantojot iepriekš definēto šifrēšanas metodi
+        return atsifrets;
     }
 }
